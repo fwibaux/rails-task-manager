@@ -1,0 +1,15 @@
+<h1><%= @task.title %></h1>
+<p>created at : <%= (@task.created_at).strftime("%d/%m/%Y - at %H:%M") %></p>
+<p>completed <% if @task.completed
+  %>
+    <%= '[X]' %>
+    <% else %>
+    <%= '[ ]' %>
+  </p>
+  <% end %>
+  <% if @task.updated_at == @task.created_at %>
+    <p>not updated yet</p>
+  <% else %>
+    <p>updated at: <%=(@task.updated_at).strftime("%d/%m/%Y - at %H:%M")%></p>
+  <% end %>
+<p><%= link_to "Back to list", tasks_path %></p>

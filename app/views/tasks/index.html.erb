@@ -1,0 +1,19 @@
+<h1>Tasks Manager</h1>
+
+<p><%= link_to "Create New Task", new_task_path(@task) %></p>
+
+<% @tasks.each do |task| %>
+<h2><%= task.title %></h2>
+<p>completed <% if task.completed
+  %>
+    <%= '[X]' %>
+    <% else %>
+    <%= '[ ]' %>
+  </p>
+  <% end %>
+  <p><%= link_to "Details", task_path(task) %>
+  <%= link_to "Update", edit_task_path(task) %>
+  <%= link_to "Delete", task_path(task), method: :delete %>
+  </p>
+<% end %>
+
